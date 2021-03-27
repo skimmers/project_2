@@ -1,8 +1,9 @@
 const sequelize = require('../config/connection');
-const { User, Search } = require('../models');
+const { User, Search, Comment } = require('../models');
 
 const userData = require('./userData.json');
-const exampleSearches = require('./searchData.json');
+const searchData = require('./searchData.json');
+const commentData = require('./commentData.json');
 
 const seedDatabase = async () => {
     await sequelize.sync({ force: true });
@@ -14,9 +15,17 @@ const seedDatabase = async () => {
     });
 
     // randomly associates each search object in searchData.json with a user
-    for (const search of exampleSearches) {
+    for (const search of searchData) {
         await Search.create({
             ...search,
+            user_id: user[Math.floor(Math.random() * user.length)].id
+        });
+    }
+
+    // randomly associates each search object in searchData.json with a user
+    for (const comment of commentData) {
+        await Comment.create({
+            ...comment,
             user_id: user[Math.floor(Math.random() * user.length)].id
         });
     }

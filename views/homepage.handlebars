@@ -1,11 +1,23 @@
 <div class="row">
-  <h2> Find a Campground </h2>
-  
+  <h2> Choose a Trail </h2>
+
   <form class="form login-form">
-      <div class="form-group">
-        <label for="search">Search by city, state, or zipcode:</label>
-        <input class="form-input" type="text" id="search" />
-      </div>
-    </form>
+    <div class="form-group">
+      <datalist id="browsers">
+        <option value="Angels Landing Trail">
+        <option value="Devils Bridge Trail">
+        <option value="Emerald Lake Trail">
+        <option value="Alum Cave Trail to Mount LeConte">
+        <option value="Cathedral Rock Trail">
+        <option value="Mount Lafayette and Franconia Ridge Trail Loop">
+        <option value="Navajo Loop and Queen's Garden Trail">
+        <option value="Lake Blanche Trail">
+        <option value="Lake 22 Trail">
+        <option value="Delicate Arch Trail"></option>
+      </datalist>
+    </div>
+  </form>
+
+  <input list="browsers" id="browsers" name="browser">
 
 </div>

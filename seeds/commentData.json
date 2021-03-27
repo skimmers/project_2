@@ -1,0 +1,17 @@
+[
+    {
+        "title": "WOW!",
+        "comment": "Great time!",
+        "rating": 5
+    },
+    {
+        "title": "AMAZING!",
+        "comment": "yada yada!",
+        "rating": 4
+    },
+    {
+        "title": "SPECTACULAR!",
+        "comment": "terrible time",
+        "rating": 1
+    }
+]

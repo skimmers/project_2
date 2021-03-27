@@ -11,9 +11,45 @@ Search.init(
             primaryKey: true,
             autoIncrement: true,
         },
-        search: {
+        state: {
             type: DataTypes.STRING,
             allowNull: false,
+        },
+        trail_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        park_name: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        trail_length: {
+            type: DataTypes.DECIMAL(5,1),
+            allowNull: false,
+        },
+        elevation_gain: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        fees: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        difficulty: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        pets_allowed: {
+            type: DataTypes.BOOLEAN,
+            allowNull: false
+        },
+        trail_map: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        trail_img: {
+            type: DataTypes.STRING,
+            allowNull: false
         },
         user_id: {
             type: DataTypes.INTEGER,

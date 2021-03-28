@@ -1,4 +1,6 @@
-<div class="row">
+{{!-- ****** Do we want to put this carosel in the result section? Or put it on the home page? --}}
+
+{{!-- <div class="row">
   <div class="col-sm-6">
     <div class="card">
       <div class="card-header">
@@ -28,14 +30,61 @@
       </div>
     </div>
   </div>
-  {{!-- <div class="col-sm-6">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Weather</h5>
-        <p class="card-text">A place for weather info</p>
-        <a href="#" class="btn btn-primary">See More</a>
-      </div>
-    </div>
-  </div> --}}
+</div> --}}
+
+{{!-- Row that handles trail/park name --}}
+<div class="row mb-4 trail-name">
+  <div class="col-md-12">
+    <h1>{{search.trail_name}}</h1>
+    <h3>{{search.park_name}}</h3>
+  </div>
 </div>
-<script src="./js/results.js"></script
+
+{{!-- Row/columns that handle all trail images and details  --}}
+<div class="row mb-4 result-section">
+  <div class="col-md-4 trail-map">
+    <img src="{{search.trail_map}}" style="max-width: 500px; max-height: 500px">
+  </div>
+  <div class="col-md-4 trail-img">
+    <img src="{{search.trail_img}}" style="max-width: 500px; max-height: 500px">
+  </div>
+  <div class="col-md-4 trail-info">
+    <p class="trail-state">{{search.state}}</p>
+    <p class="trail-info">{{search.trail_length}}</p>
+    <p class="trail-info">{{search.elevation_gain}}</p>
+    <p class="trail-info">{{search.difficulty}}</p>
+    <p class="trail-info">{{search.fees}}</p>
+    <p class="trail-info">{{search.pets_allowed}}</p>
+  </div>
+</div>
+
+{{!-- Row that contains all comment section information --}}
+{{#each comments as |comment|}}
+    <div class="row mb-4 comment-section">
+        <div class="col-md-8">
+            <h2>
+            <a href="/comment/{{comment.id}}">{{comment.title}}</a>
+            </h2>
+            <p>
+            {{!-- Make class "comment-info" small and in upper right corner of div --}}
+            <span class="comment-info" for="timestamp" aria-label="timestamp">By: {{comment.user.name}} | {{comment.date_created}}</span>
+            <span class="comment-rating">Rating: {{comment.rating}}</span>
+            </p>
+        </div>
+        <div class="col-md-7">
+            <p>
+            {{comment.content}}
+            </p>
+            {{!-- <button id="edit-btn" class="btn btn-primary">Edit comment</button> --}}
+        </div>
+    </div>
+{{/each}}
+
+{{!-- Row that contains 'post new comment' section --}}
+<div class="row mb-4 comment">
+  <div class="col-md-6">
+      <a id="create-comment" class="create-comment" href="/create">Have questions or information about this trail? Click here to leave a comment!</a> 
+  </div>
+</div>
+
+<script src="/js/results.js"></script

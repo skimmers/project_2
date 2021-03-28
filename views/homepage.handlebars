@@ -1,35 +1,27 @@
 <div class="row">
-  <h2> Choose a Trail </h2>
-
-  {{!-- <form class="form login-form">
-      <div class="form-group">
-        <label for="search">City</label>
-        <input class="form-input" type="text" id="search-city" />
-      </div>
-      <div class="form-group">
-        <label for="search">State</label>
-        <input class="form-input" type="text" id="search-state" />
-      </div>
-    </form>
-    <a class="btn btn-primary" href="/results" role="button">Results</a> --}}
+  <form class="col-md-6 md-4 form result-form">
     <div class="form-group">
       <datalist id="browsers">
-        <option value="Angels Landing Trail">
-        <option value="Devils Bridge Trail">
-        <option value="Emerald Lake Trail">
-        <option value="Alum Cave Trail to Mount LeConte">
-        <option value="Cathedral Rock Trail">
-        <option value="Mount Lafayette and Franconia Ridge Trail Loop">
-        <option value="Navajo Loop and Queen's Garden Trail">
-        <option value="Lake Blanche Trail">
-        <option value="Lake 22 Trail">
-        <option value="Delicate Arch Trail"></option>
+        <option value="Angels Landing Trail" id="1"></option>
+        <option value="Devils Bridge Trail" id="2"></option>
+        <option value="Emerald Lake Trail" id="3"></option>
+        <option value="Alum Cave Trail to Mount LeConte" id="3"></option>
+        <option value="Cathedral Rock Trail"></option>
+        <option value="Mount Lafayette and Franconia Ridge Trail Loop" id="4"></option>
+        <option value="Navajo Loop and Queen's Garden Trail" id="5"></option>
+        <option value="Lake Blanche Trail" id="6"></option>
+        <option value="Lake 22 Trail" id="7"></option>
+        <option value="Delicate Arch Trail" id="8"></option>
       </datalist>
-        <a class="btn btn-primary" href="/results" role="button">Results</a>
-
+      <input list="browsers" id="browsers" name="browser">
+    </div>
+    <div class="form-group">
+      <button class="btn btn-primary find-trail-btn" role="submit">Results</button>
     </div>
   </form>
-
-  <input list="browsers" id="browsers" name="browser">
-
+  <div class="col-md-2">
+    
+  </div>
 </div>
+
+<script src="/js/results.js"></script>

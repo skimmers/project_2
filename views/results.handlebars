@@ -63,11 +63,12 @@
     <div class="row mb-4 comment-section">
         <div class="col-md-8">
             <h2>
-            <a href="/thread/{{comment.id}}">{{comment.title}}</a>
+            <a href="/comment/{{comment.id}}">{{comment.title}}</a>
             </h2>
             <p>
             {{!-- Make class "comment-info" small and in upper right corner of div --}}
             <span class="comment-info" for="timestamp" aria-label="timestamp">By: {{comment.user.name}} | {{comment.date_created}}</span>
+            <span class="comment-rating">Rating: {{comment.rating}}</span>
             </p>
         </div>
         <div class="col-md-7">

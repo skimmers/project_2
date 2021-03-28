@@ -1,22 +1,31 @@
-const resultsHandler = async (event) => {
-    event.preventDefault();
+// global variables from elements in homepage.handlebars
+const trailForm = document.querySelector('.result-form');
+const trail = document.querySelector('option');
+// empty variable to store trailId for url query
+let trailID;
+
+// Button handler for homepage datalist 
+trailForm.addEventListener('submit', event => {
+  event.preventDefault();
   
-    // Collect values from the login form
-    const city = document.querySelector('#city-search').value.trim();
-    const state = document.querySelector('#state-search').value.trim();
-    const zipcode = document.querySelector('zipcode-search').value.trim();
+  // set the trail ID equal to trail.id
+  trailID = trail.id;
+  // Call the findTrailHandler function
+  findTrailHandler(trailID);
   
-    if (city && state && zipcode) {
-      // Send a POST request to the API endpoint
-      const response = await fetch('/api/users/results', {
-        method: 'POST',
-        body: JSON.stringify({ city, state, zipcode }),
-        headers: { 'Content-Type': 'application/json' },
-      });
+});
   
-    }
-  };
+// Async function to recieve trail information
+async function findTrailHandler(id) {
+
+  await fetch(`api/trails/${id}`)
   
-  document
-    .querySelector('.results-form')
-    .addEventListener('search', resultsHandler);
+  .then((response) => {
+    console.log(response);
+    // document.location.replace('/results'); //Redirect to result page
+  })
+
+  .catch((err) => {
+    console.log(err);
+  });
+}

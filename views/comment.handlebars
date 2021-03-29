@@ -1,4 +1,4 @@
-<form class="form create-form">
+<form class="form create-comment">
     <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="1">
         <label class="form-check-label" for="inlineCheckbox1">1</label>
@@ -9,15 +9,19 @@
     </div>
     <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="3">
-        <label class="form-check-label" for="inlineCheckbox2">3</label>
+        <label class="form-check-label" for="inlineCheckbox3">3</label>
     </div>
     <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="4">
-        <label class="form-check-label" for="inlineCheckbox2">4</label>
+        <label class="form-check-label" for="inlineCheckbox4">4</label>
     </div>
     <div class="form-check form-check-inline">
         <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="5">
-        <label class="form-check-label" for="inlineCheckbox2">5</label>
+        <label class="form-check-label" for="inlineCheckbox5">5</label>
+    </div>
+    <div class="form-group">
+        <span class="input-group-text">Trail ID:</span>
+        <textarea id="trail-id" class="form-control" aria-label="With textarea"></textarea>
     </div>
     <div class="form-group">
         <span class="input-group-text">Title</span>
@@ -27,4 +31,9 @@
         <span class="input-group-text">What's new technology would you like to blog about?</span>
         <textarea id="create-comment" class="form-control" aria-label="With textarea"></textarea>
     </div>
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
 </form>
+
+<script src="/js/comment.js"></script>

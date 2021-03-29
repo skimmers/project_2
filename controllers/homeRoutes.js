@@ -22,6 +22,10 @@ router.get("/profile", withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
+      include: [
+        { model: Search },
+        { model: Comment }
+      ]
     });
 
     const user = userData.get({ plain: true });
@@ -34,6 +38,39 @@ router.get("/profile", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// router.get('/profile', async (req, res) => {
+//   try {
+//     const getProfile = await Comment.findAll({
+//       // ***** need to find a way to only recieve comments made by the specific user that is logged in
+//       where: {
+//         user_id: req.sessions.user_id,
+//       },
+//       include: [
+//         { model: Search },
+//         { model: User,
+//           exclude: {
+//             attributes: ['password']
+//           } 
+//         }
+//       ]
+//     });
+
+//     if (!getProfile) {
+//       res.status(400).json({ message: 'Cannot find comment.' });
+//       return;
+//     }
+
+//     const profile = getProfile.get({ plain: true });
+
+//     res.render('profile', {
+//       ...profile
+//     });
+    
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+//   });
 
 // GET route to handle login page
 router.get("/login", (req, res) => {
@@ -106,35 +143,13 @@ router.get("/results/:id", withAuth, async (req, res) => {
 
 router.get('/comment', async (req, res) => {
   try {
-    const getComment = await Comment.findAll({
-      include: [
-        { model: Search },
-        { model: User,
-          exclude: {
-            attributes: ['password']
-          } 
-        }
-      ]
-    });
 
-    if (!getComment) {
-      res.status(400).json({ message: 'Cannot find comment.' });
-      return;
-    }
+    res.render('comment');
 
-    const comments = getComment.get({ plain: true });
-    res.json(comments);
-
-    // const commentData = getComment.get({ plain: true });
-
-    // res.json(commentData);
-
-    // res.render('comment', commentInfo);
-  
-    } catch (err) {
-        res.status(500).json(err);
-    }
-  });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 // GET route to handle requests for comment data by primary key
 router.get("/comment/:id",  async (req, res) => {

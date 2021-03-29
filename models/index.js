@@ -22,7 +22,6 @@ Comment.belongsTo(User, {
 });
 
 Search.hasMany(Comment, {
-    as: 'comment',
     foreignKey: 'search_id',
 });
 

@@ -28,20 +28,22 @@ Comment.init(
             allowNull: false,
             defaultValue: DataTypes.NOW
         },
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        },
         search_id: {
             type: DataTypes.INTEGER,
+            allowNull: false,
             references: {
                 model: 'search',
                 key: 'id'
             },
         },
-        user_id: {
-            type: DataTypes.INTEGER,
-            references: {
-                model: 'user',
-                key: 'id'
-            }
-        }
     },
     {
         sequelize,

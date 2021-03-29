@@ -6,21 +6,22 @@ const withAuth = require('../../utils/auth');
 
 // *** Put withAuth back in once we know the routes are good to go
 router.get('/', async (req, res) => {
-    try {
-        const getComment = await Comment.findAll({
-            include: [{
-                model: Search,
-                model: User,
-                exclude: {
-                    attributes: ['password']
-                },
-            }],
-        });
-    
-        const commentInfo = getComment.map(comment => comment.get({ plain: true }));
-        res.json(commentInfo);
-    
-        // res.render('comment', commentInfo);
+  try {
+    const getComment = await Comment.findAll({
+      include: [
+        { model: Search },
+        { model: User,
+            exclude: {
+                attributes: ['password']
+            },
+        },
+      ],
+    });
+
+    const commentInfo = getComment.map(comment => comment.get({ plain: true }));
+    res.json(commentInfo);
+
+    // res.render('comment', commentInfo);
   
     } catch (err) {
         res.status(500).json(err);
@@ -30,19 +31,20 @@ router.get('/', async (req, res) => {
   // GET route for a specific user comment
   router.get('/:id', async (req, res) => {
     try {
-        const getComment = await Comment.findByPk(req.params.id, {
-            include: [{
-                model: Search,
-                model: User,
-                exclude: {
-                    attributes: ['password']
-                },
-            }],
-        });
+      const getComment = await Comment.findByPk(req.params.id, {
+        include: [
+          { model: Search },
+          { model: User,
+            exclude: {
+              attributes: ['password']
+            },
+          },
+        ],
+      });
     
-        res.status(200).json(getComment);
+      res.status(200).json(getComment);
     
-        // res.render('comment', commentInfo);
+      // res.render('comment', commentInfo);
   
     } catch (err) {
         res.status(500).json(err);

@@ -14,7 +14,9 @@ router.post('/', async (req, res) => {
     const commentData = createComment.get({ plain: true });
     res.json(commentData);
 
-  //   res.render('results', commentData);
+    res.render('profile', {
+      ...commentData
+    });
 
   } catch (err) {
     res.status(500).json(err);

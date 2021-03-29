@@ -35,26 +35,26 @@
 {{!-- Row that handles trail/park name --}}
 <div class="row mb-4 trail-name">
   <div class="col-md-12">
-    <h1>{{search.trail_name}}</h1>
-    <h3>{{search.park_name}}</h3>
+    <h1>{{trail_name}}</h1>
+    <h3>{{park_name}}</h3>
   </div>
 </div>
 
 {{!-- Row/columns that handle all trail images and details  --}}
 <div class="row mb-4 result-section">
   <div class="col-md-4 trail-map">
-    <img src="{{search.trail_map}}" style="max-width: 500px; max-height: 500px">
+    <img src="{{trail_map}}" style="max-width: 500px; max-height: 500px">
   </div>
   <div class="col-md-4 trail-img">
-    <img src="{{search.trail_img}}" style="max-width: 500px; max-height: 500px">
+    <img src="{{trail_img}}" style="max-width: 500px; max-height: 500px">
   </div>
   <div class="col-md-4 trail-info">
-    <p class="trail-state">{{search.state}}</p>
-    <p class="trail-info">{{search.trail_length}}</p>
-    <p class="trail-info">{{search.elevation_gain}}</p>
-    <p class="trail-info">{{search.difficulty}}</p>
-    <p class="trail-info">{{search.fees}}</p>
-    <p class="trail-info">{{search.pets_allowed}}</p>
+    <p class="trail-state">{{state}}</p>
+    <p class="trail-info">{{trail_length}}</p>
+    <p class="trail-info">{{elevation_gain}}</p>
+    <p class="trail-info">{{difficulty}}</p>
+    <p class="trail-info">{{fees}}</p>
+    <p class="trail-info">{{pets_allowed}}</p>
   </div>
 </div>
 
@@ -86,5 +86,3 @@
       <a id="create-comment" class="create-comment" href="/create">Have questions or information about this trail? Click here to leave a comment!</a> 
   </div>
 </div>
-
-<script src="/js/results.js"></script

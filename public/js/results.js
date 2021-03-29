@@ -18,14 +18,15 @@ trailForm.addEventListener('submit', event => {
 // Async function to recieve trail information
 async function findTrailHandler(id) {
 
-  await fetch(`api/trails/${id}`)
-  
-  .then((response) => {
-    console.log(response);
-    // document.location.replace('/results'); //Redirect to result page
-  })
+  // fetch the url associated with api/trails
+  const response = await fetch(`/results/${id}`);
 
-  .catch((err) => {
-    console.log(err);
-  });
+  console.log(response);
+  
+  if (response.ok) {
+    document.location.replace(`/results/${id}`);
+  } else {
+    alert(response.statusText);
+  }
+
 }

@@ -1,28 +1,28 @@
 const router = require('express').Router();
 const { User, Search, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
-router.get('/:id', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
-        const trailData = await Search.findByPk(req.params.id, {
-            include: {
-                model: Comment,
-                model: User,
-                exclude: {
-                    attributes: ['password']
+        const trailData = await Search.findAll({
+            include: [
+                { model: Comment },
+                { model: User,
+                    exclude: {
+                        attributes: ['password']
+                    },
                 },
-            },
+            ],
         });
 
-        console.log(trailData);
-        const getTrail = trailData.map(trail => trail.get({ plain: true }));
-        res.status(400).json(trailData);
+        const allTrails = trailData.map(trail => trail.get({ plain: true }));
+        res.status(200).json(allTrails);
 
-        res.render('results', getTrail);
+        res.render('results', allTrails);
 
     } catch (err) {
         res.status(500).json(err);
     }
 });
-
 
 module.exports = router;

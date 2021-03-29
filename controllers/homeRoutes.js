@@ -72,33 +72,34 @@ router.get("/signup", (req, res) => {
   
 });
 
-// GET route to handle results page
-router.get("/results", withAuth, async (req, res) => {
-  // If the user is already logged in, redirect the request to another route
+// GET route to handle results page based on search results
+router.get('/results/:id', async (req, res) => {
   try {
+      const trailData = await Search.findByPk(req.params.id, {
+          include: [
+              { model: Comment },
+              { model: User,
+                  exclude: {
+                      attributes: ['password']
+                  },
+              },
+          ],
+      });
 
-    const searchData = await Search.findOne({
-      where: {
-        trail_name: req.body.trail_name
-      },
-      include: {
-        model: Comment,
-        model: User,
-        exclude: {
-          attributes: ['password']
-        },
-      },
-    }); 
+      // const getTrail = trailData.map(trail => trail.get({ plain: true }));
+      // res.status(200).json(trailData);
 
-    console.log(searchData);
-    const resultData = searchData.map(result => result.get({ plain: true }));
-    res.status(400).json(resultData);
+    const trails = trailData.get({ plain: true });
 
-    res.render('results', resultData);
+
+      res.render('results', {
+        ...trails
+      });
 
   } catch (err) {
-    res.status(500).json(err);
+      res.status(500).json(err);
   }
+
 });
 
 // router.get("/comment")

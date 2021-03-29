@@ -72,8 +72,8 @@ router.get("/signup", (req, res) => {
   
 });
 
-// GET route to handle results page based on search results
-router.get('/results/:id', async (req, res) => {
+// GET route to handle results page based on search results by primary key
+router.get("/results/:id", withAuth, async (req, res) => {
   try {
       const trailData = await Search.findByPk(req.params.id, {
           include: [
@@ -86,13 +86,15 @@ router.get('/results/:id', async (req, res) => {
           ],
       });
 
-      // const getTrail = trailData.map(trail => trail.get({ plain: true }));
-      // res.status(200).json(trailData);
+      if (!trailData) {
+        res.status(400).json({ message: 'Cannot find trail information.' });
+        return;
+      }
 
     const trails = trailData.get({ plain: true });
 
 
-      res.render('results', {
+      res.render("results", {
         ...trails
       });
 
@@ -102,6 +104,67 @@ router.get('/results/:id', async (req, res) => {
 
 });
 
-// router.get("/comment")
+router.get('/comment', async (req, res) => {
+  try {
+    const getComment = await Comment.findAll({
+      include: [
+        { model: Search },
+        { model: User,
+          exclude: {
+            attributes: ['password']
+          } 
+        }
+      ]
+    });
+
+    if (!getComment) {
+      res.status(400).json({ message: 'Cannot find comment.' });
+      return;
+    }
+
+    const comments = getComment.get({ plain: true });
+    res.json(comments);
+
+    // const commentData = getComment.get({ plain: true });
+
+    // res.json(commentData);
+
+    // res.render('comment', commentInfo);
+  
+    } catch (err) {
+        res.status(500).json(err);
+    }
+  });
+
+// GET route to handle requests for comment data by primary key
+router.get("/comment/:id",  async (req, res) => {
+  try {
+    const commentData = await Comment.findByPk(req.params.id, {
+      include: [
+        { model: Search },
+        { model: User,
+          exclude: {
+            attributes: ['password']
+          } 
+        }
+      ]
+    });
+
+    if (!commentData) {
+      res.status(400).json({ message: 'Cannot find comment.' });
+      return;
+    }
+
+    const comments = commentData.get({ plain: true });
+    res.json(comments);
+
+    res.render("comment", {
+      ...comments
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

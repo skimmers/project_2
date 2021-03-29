@@ -2,11 +2,6 @@ const router = require('express').Router();
 const { User, Comment, Search } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-// *********** Need get route for user profile page
-
-// GET route for a specific user comment
-// *** Put withAuth back in once we know the routes are good to go
-
 // POST route for login page
 router.post('/login', async (req, res) => {
   try {

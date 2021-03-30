@@ -22,6 +22,10 @@ router.get("/profile", withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ["password"] },
+      include: [
+        { model: Search },
+        { model: Comment }
+      ]
     });
 
     const user = userData.get({ plain: true });
@@ -34,6 +38,39 @@ router.get("/profile", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// router.get('/profile', async (req, res) => {
+//   try {
+//     const getProfile = await Comment.findAll({
+//       // ***** need to find a way to only recieve comments made by the specific user that is logged in
+//       where: {
+//         user_id: req.sessions.user_id,
+//       },
+//       include: [
+//         { model: Search },
+//         { model: User,
+//           exclude: {
+//             attributes: ['password']
+//           } 
+//         }
+//       ]
+//     });
+
+//     if (!getProfile) {
+//       res.status(400).json({ message: 'Cannot find comment.' });
+//       return;
+//     }
+
+//     const profile = getProfile.get({ plain: true });
+
+//     res.render('profile', {
+//       ...profile
+//     });
+    
+//     } catch (err) {
+//         res.status(500).json(err);
+//     }
+//   });
 
 // GET route to handle login page
 router.get("/login", (req, res) => {
@@ -72,8 +109,8 @@ router.get("/signup", (req, res) => {
   
 });
 
-// GET route to handle results page based on search results
-router.get('/results/:id', async (req, res) => {
+// GET route to handle results page based on search results by primary key
+router.get("/results/:id", withAuth, async (req, res) => {
   try {
       const trailData = await Search.findByPk(req.params.id, {
           include: [
@@ -86,13 +123,15 @@ router.get('/results/:id', async (req, res) => {
           ],
       });
 
-      // const getTrail = trailData.map(trail => trail.get({ plain: true }));
-      // res.status(200).json(trailData);
+      if (!trailData) {
+        res.status(400).json({ message: 'Cannot find trail information.' });
+        return;
+      }
 
     const trails = trailData.get({ plain: true });
 
 
-      res.render('results', {
+      res.render("results", {
         ...trails
       });
 
@@ -102,6 +141,45 @@ router.get('/results/:id', async (req, res) => {
 
 });
 
-// router.get("/comment")
+router.get('/comment', async (req, res) => {
+  try {
+
+    res.render('comment');
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// GET route to handle requests for comment data by primary key
+router.get("/comment/:id",  async (req, res) => {
+  try {
+    const commentData = await Comment.findByPk(req.params.id, {
+      include: [
+        { model: Search },
+        { model: User,
+          exclude: {
+            attributes: ['password']
+          } 
+        }
+      ]
+    });
+
+    if (!commentData) {
+      res.status(400).json({ message: 'Cannot find comment.' });
+      return;
+    }
+
+    const comments = commentData.get({ plain: true });
+    res.json(comments);
+
+    res.render("comment", {
+      ...comments
+    });
+
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

@@ -7,7 +7,7 @@ router.get("/", withAuth, async (req, res) => {
   try {
 
     res.render("homepage", {
-      logged_in: req.session.logged_in,
+      logged_in: true,
     });
 
   } catch (err) {
@@ -39,39 +39,6 @@ router.get("/profile", withAuth, async (req, res) => {
   }
 });
 
-// router.get('/profile', async (req, res) => {
-//   try {
-//     const getProfile = await Comment.findAll({
-//       // ***** need to find a way to only recieve comments made by the specific user that is logged in
-//       where: {
-//         user_id: req.sessions.user_id,
-//       },
-//       include: [
-//         { model: Search },
-//         { model: User,
-//           exclude: {
-//             attributes: ['password']
-//           } 
-//         }
-//       ]
-//     });
-
-//     if (!getProfile) {
-//       res.status(400).json({ message: 'Cannot find comment.' });
-//       return;
-//     }
-
-//     const profile = getProfile.get({ plain: true });
-
-//     res.render('profile', {
-//       ...profile
-//     });
-    
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-//   });
-
 // GET route to handle login page
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
@@ -81,8 +48,10 @@ router.get("/login", (req, res) => {
       res.redirect("/profile");
       return;
     }
-  
-    res.render("login");
+
+      res.render("login",  {
+        logged_in: true,
+      });
 
   } catch (err) {
 
@@ -132,7 +101,8 @@ router.get("/results/:id", withAuth, async (req, res) => {
 
 
       res.render("results", {
-        ...trails
+        ...trails,
+        logged_in: true,
       });
 
   } catch (err) {
@@ -174,7 +144,8 @@ router.get("/comment/:id",  async (req, res) => {
     res.json(comments);
 
     res.render("comment", {
-      ...comments
+      ...comments,
+      logged_in: true,
     });
 
   } catch (err) {

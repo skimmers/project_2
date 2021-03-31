@@ -1,0 +1,47 @@
+/* -----------Start of styling for the navbar and it's elements ----------*/
+.navbar-container {
+    border-bottom: 1px solid black;
+}
+/* -----------Start of styling for the navbar and it's elements ----------*/
+
+
+/* ---------- Start of styling for the drop-down menu on the homescreen ------------ */
+#trail-list-container {
+    height: 7.5%;
+    width: 100%;
+    background-color: #2f2f2f;
+}
+
+#trail-list-container {
+    background-color: #2f2f2f;
+}
+
+#trail-list-btn {
+    background-color: #2f2f2f;
+    height: 99%;
+    width: 100%;
+}
+
+.list-group-item {
+    border-bottom: 2px solid #2f2f2f;
+}
+
+#trail-link {
+    font-size: 40px;
+    color: #2f2f2f;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+#trail-link:hover {
+    color: whitesmoke;
+}
+/* ------End of styling for the drop-down menu on the homescreen --------- */
+
+
+/* -----------Start of styling for the footer and it's elements ----------*/
+footer {
+    border-top: 1px solid black;
+    
+}
+/* -----------End of styling for the footer and it's elements ----------*/

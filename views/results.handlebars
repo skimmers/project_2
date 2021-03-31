@@ -41,21 +41,26 @@
   </div>
 </div>
 
-{{!-- Row/columns that handle all trail images and details  --}}
-<div class="row mb-4 result-section">
-  <div class="col-md-4 trail-map">
-    <img src="{{trail_map}}" style="max-width: 500px; max-height: 500px">
-  </div>
-  <div class="col-md-4 trail-img">
-    <img src="{{trail_img}}" style="max-width: 500px; max-height: 500px">
-  </div>
+{{!-- Row/columns that handle all trail images and details --}}
+<div class="container container-fluid" id="results-div">
+  {{!-- <div class="results-images"> --}}
+    <div class="row">
+      <div class="col trail-map results">
+        <img src="{{trail_map}}" style="max-width: 500px; max-height: 500px">
+      </div>
+      <div class="col trail-img results">
+        <img src="{{trail_img}}" style="max-width: 500px; max-height: 500px">
+      </div>
+    </div>
+    {{!--
+  </div> --}}
   <div class="col-md-4 trail-info">
-    <p class="trail-state">{{state}}</p>
-    <p class="trail-info">{{trail_length}}</p>
-    <p class="trail-info">{{elevation_gain}}</p>
-    <p class="trail-info">{{fees}}</p>
-    <p class="trail-info">{{difficulty}}</p>
-    <p class="trail-info">{{pets_allowed}}</p>
+    <p class="trail-state">State: {{state}}</p>
+    <p class="trail-info">Length of trail: {{trail_length}} miles</p>
+    <p class="trail-info">Elevation of trail: {{elevation_gain}}ft</p>
+    <p class="trail-info">Fee cost: ${{fees}}</p>
+    <p class="trail-info">Difficulty ranking: {{difficulty}}</p>
+    <p class="trail-info">Pets allowed: {{pets_allowed}}</p>
   </div>
 </div>
 

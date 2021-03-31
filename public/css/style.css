@@ -1,3 +1,9 @@
+/* ----- Start of Universal Styling ------- */
+body {
+    background-color: #2f2f2f;
+}
+/* ----- End of Universal Styling --------- */
+
 /* -----------Start of styling for the navbar and it's elements ----------*/
 .navbar-container {
     border-bottom: 1px solid black;

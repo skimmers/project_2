@@ -9,7 +9,7 @@
         "difficulty": 3,
         "pets_allowed": false,
         "trail_map": "https://s3.amazonaws.com/seekadventure.net.storage/2019-08-16/1565917002-575439-angels-landing-map.png",
-        "trail_img": "https://img.travelawaits.com/quill/1/8/1/b/3/8/181b38e00192a6977130d5681de1da2f7a17f0a4.jpg"
+        "trail_img": "'/images/angels-trail.jpg'"
     },
     {
         "state": "Arizona",
@@ -21,7 +21,7 @@
         "difficulty": 3,
         "pets_allowed": true,
         "trail_map": "https://thatadventurelife.com/wp-content/uploads/2020/10/Map-1024x946.jpg",
-        "trail_img": "https://s27363.pcdn.co/wp-content/uploads/2020/05/Devils-Bridge-Sedona.jpg.optimal.jpg"
+        "trail_img": "'/images/devils-bridge.jpg'"
     },
     {
         "state": "Colorado",
@@ -33,7 +33,7 @@
         "difficulty": 2,
         "pets_allowed": false,
         "trail_map": "https://hikebiketravel.com/wp-content/uploads/2012/09/Emerald-lake-11.jpg",
-        "trail_img": "https://www.nps.gov/common/uploads/cropped_image/primary/A07F80F7-003A-51BC-1278C10F31C1BFC3.jpg?width=1200&quality=90&mode=crop"
+        "trail_img": "/images/emerald-lake.jpg"
     },
     {
         "state": "Tennessee",
@@ -45,7 +45,7 @@
         "difficulty": 5,
         "pets_allowed": false,
         "trail_map": "https://proactiveoutside.files.wordpress.com/2015/12/trailmapleconte.png",
-        "trail_img": "https://ashevilletrails.com/wp-content/uploads/2018/03/02-alum-cave-trail-mt-leconte.jpg"
+        "trail_img": "'/images/mount-leconte.jpg'"
     },
     {
         "state": "Arizona",
@@ -57,7 +57,7 @@
         "difficulty": 1,
         "pets_allowed": true,
         "trail_map": "https://mlu2ow3ntgmg.i.optimole.com/ajszAXs-D7keTtng/w:314/h:377/q:auto/https://i2.wp.com/9to5travelguy.com/wp-content/uploads/2020/08/Map-Cathedral-Rock.jpg",
-        "trail_img": "https://i1.wp.com/dani-the-explorer.com/wp-content/uploads/2019/11/cathderal-rock-hike-16-min.jpg?w=1080&ssl=1"
+        "trail_img": "'/images/cathedral-rock.jpg'"
     },
     {
         "state": "New Hampshire",
@@ -69,7 +69,7 @@
         "difficulty": 5,
         "pets_allowed": true,
         "trail_map": "https://lh3.googleusercontent.com/proxy/0lzu-gJF9MtQB9TXvHCCXaiybnjqhx1aIlZazWA1CHMmK2MPMxNk9wVG6SW_QMesREKxyty5lrhQ1MkcQGcmJojNDu8-mxp1",
-        "trail_img": "https://i.pinimg.com/originals/a0/b9/be/a0b9beaebfaca50ec20d028243cc7abe.jpg"
+        "trail_img": "'/images/franconia-ridge.jpg'"
     },
     {
         "state": "Utah",
@@ -81,7 +81,7 @@
         "difficulty": 3,
         "pets_allowed": false,
         "trail_map": "https://i.pinimg.com/originals/1b/ba/09/1bba09cd76cda0d0e36825b6bd414562.png",
-        "trail_img": "https://media.deseretdigital.com/file/6b8f083311?type=jpeg&quality=55&c=15&a=4379240d"
+        "trail_img": "'/images/queens-garden.jpg'"
     },
     {
         "state": "Utah",
@@ -93,7 +93,7 @@
         "difficulty": 5,
         "pets_allowed": false,
         "trail_map": "http://www.utahhikes.net/blanche11/GPSmap.jpg",
-        "trail_img": "http://2.bp.blogspot.com/-cVwlzbUykqU/VaZlwkMm73I/AAAAAAAAOqM/e99BUhFrTMQ/s1600/DSC_4967.jpg"
+        "trail_img": "'/images/lake-blanche.jpg'"
     },
     {
         "state": "Washington",
@@ -105,7 +105,7 @@
         "difficulty": 4,
         "pets_allowed": true,
         "trail_map": "https://i.pinimg.com/originals/f1/e1/9c/f1e19ce12773e5083f3d1ca8116643da.png",
-        "trail_img": "https://www.wta.org/site_images/hikes/dscn7692.jpg/@@images/a7b8a52d-c43a-498d-9289-e3d64ba3ad12.jpeg"
+        "trail_img": "'/images/lake-22.jpg'"
     },
     {
         "state": "Utah",
@@ -117,6 +117,6 @@
         "difficulty": 2,
         "pets_allowed": true,
         "trail_map": "http://npmaps.com/wp-content/uploads/arches-windows-map.jpg",
-        "trail_img": "https://s27363.pcdn.co/wp-content/uploads/2019/01/Delicate-Arch.jpg.optimal.jpg"
+        "trail_img": "'/images/delicate-arch.jpg'"
     }
 ]

@@ -45,6 +45,86 @@ body {
 /* ------End of styling for the drop-down menu on the homescreen --------- */
 
 
+/* -----------Start of styling for the results.hbs and it's elements ----------*/
+.img-container {
+    height: 650px;
+    padding: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+    z-index: 1;
+}
+
+.trail-map {
+    height: 400px;
+    width: 400px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+    z-index: 2;
+}
+
+.comment-link-container {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.create-comment {
+    line-height: 1.5;
+    font-size: x-large;
+    font-weight: 500;
+    text-decoration: none;
+    padding-bottom: 10px;
+    color: whitesmoke;
+}
+
+.trail-data {
+    text-align: center;
+    color: whitesmoke;
+}
+
+.trail-name {
+    line-height: 1.5;
+    font-size: xx-large;
+    font-weight: 800;
+    padding-bottom: 10px;
+}
+
+.trail-name:hover {
+    color: #2f2f2f;
+}
+
+.park-name-state {
+    line-height: 1.5;
+    font-size: x-large;
+    font-weight: 700;
+    padding-bottom: 10px;
+    border-bottom: 1px solid whitesmoke;
+}
+
+.park-name-state:hover {
+    background-color: whitesmoke;
+    color: #2f2f2f;
+}
+
+.trail-info {
+    line-height: 2.5;
+    font-size: large;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.trail-info:hover {
+    background-color: whitesmoke;
+    font-weight: 700;
+    font-size: x-large;
+    color: #2f2f2f;
+}
+
+
+
+
+/* -----------End of styling for the results.hbs and it's elements ----------*/
+
+
 /* -----------Start of styling for the footer and it's elements ----------*/
 footer {
     border-top: 1px solid black;

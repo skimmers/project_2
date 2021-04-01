@@ -31,27 +31,27 @@
     </div>
   </div>
 </div> --}}
-
-{{!-- Row that handles trail/park name --}}
-<div class="row mb-4 trail-name">
-  <div class="col-md-12">
-    <h1>{{trail_name}}</h1>
-    <h3>{{park_name}}</h3>
-    <h3>Trail ID: {{id}}</h3>
+<div class="main"></div>
+<div class="d1">
+  {{!-- Row that handles trail map --}}
+  <div class="row">
+    <div class="col-md-12 trail-map results" id="map" style="height: 250px; max-width: 250px;"></div>
   </div>
 </div>
-
+<div class="d2">
 {{!-- Row/columns that handle all trail images and details --}}
-<div class="container container-fluid" id="results-div">
-  {{!-- <div class="results-images"> --}}
-    <div class="row">
-      <div class="col trail-map results">
-        <img src="{{trail_map}}" style="max-width: 500px; max-height: 500px">
-      </div>
-      <div class="col trail-img results">
-        <img src="{{trail_img}}" style="max-width: 500px; max-height: 500px">
-      </div>
+  <div class="row mb-4 trail-row">
+    <div class="col-md-12 text-center trail-info-container">
+      <h2 class="trail-name">{{trail_name}}</h2>
+      <h3 class="park-name-state">{{park_name}} | {{state}}</h3>
+      <p class="trail-info trail-id">Trail ID: {{id}}</h3>
+      <p class="trail-info">Length of trail: {{trail_length}} miles</p>
+      <p class="trail-info">Difficulty ranking: {{difficulty}}</p>
+      <p class="trail-info">Elevation of trail: {{elevation_gain}} ft.</p>
+      <p class="trail-info">Fee cost: ${{fees}}</p>
+      <p class="trail-info">Pets allowed: {{pets_allowed}}</p>
     </div>
+<<<<<<< HEAD
     {{!--
   </div> --}}
   <div class="col-md-4 trail-info">
@@ -61,30 +61,54 @@
     <p class="trail-info">Fee cost: ${{fees}}</p>
     <p class="trail-info">Difficulty ranking: {{difficulty}}/5</p>
     <p class="trail-info">Pets allowed: {{pets_allowed}}</p>
+=======
+>>>>>>> 7bbae65bd8133722aba8599416edb7a329fe07b4
+  </div>
+</div>
+<div class="d3"></div>
+<div class="d4">
+  <div class="dropdown d-flex justify-content-center" id="trail-list-container">
+    <a class="btn btn-secondary dropdown-toggle text-center mx-auto" id="trail-list-btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    Find Your Trail
+    </a>
+   <ul class="dropdown-menu text-center bg-transparent text-dark" id="trail-list-container" aria-labelledby="dropdownMenuLink">
+      <li class="bg-transparent list-group-item"> <a href= "/results/1" id="trail-link">Angels Landing Trail</a></li>
+      <li class="bg-transparent list-group-item"><a href= "/results/2" id="trail-link">Devils Bridge Trail</a></li>
+      <li class="bg-transparent list-group-item"><a href= "/results/3" id="trail-link">Emerald Lake Trail</a></li>
+      <li class="bg-transparent list-group-item"><a href= "/results/4" id="trail-link">Alum Cave Trail to Mount LeConte</a></li>
+      <li class="bg-transparent list-group-item"><a href= "/results/5" id="trail-link">Cathedral Rock Trail</a></li>
+      <li class="bg-transparent list-group-item"><a href= "/results/6" id="trail-link">Mount Lafayette and Franconia Ridge Trail Loop</a></li>
+      <li class="bg-transparent list-group-item"><a href= "/results/7" id="trail-link">Navajo Loop and Queen's Garden Trail</a></li>
+      <li class="bg-transparent list-group-item"><a href= "/results/8" id="trail-link">Lake Blanche Trail</a></li>
+      <li class="bg-transparent list-group-item"><a href="/results/9" id="trail-link">Lake 22 Trail</a></li>
+      <li class="bg-transparent list-group-item"><a href="/results/10" id="trail-link">Delicate Arch Trail</a></li>
+   </ul>
   </div>
 </div>
 
+
 {{!-- Row that contains all comment section information --}}
-{{#each comments as |comment|}}
-    <div class="row mb-4 comment-section">
-        <div class="col-md-8">
-            <h2>
-            <a href="/comment/{{comment.id}}">{{comment.title}}</a>
-            </h2>
-            <p>
-            {{!-- Make class "comment-info" small and in upper right corner of div --}}
-            <span class="comment-info" for="timestamp" aria-label="timestamp">By: {{comment.user.name}} | {{comment.date_created}}</span>
-            <span class="comment-rating">Rating: {{comment.rating}}</span>
-            </p>
-        </div>
-        <div class="col-md-7">
-            <p>
-            {{comment.content}}
-            </p>
-            {{!-- <button id="edit-btn" class="btn btn-primary">Edit comment</button> --}}
-        </div>
+  {{!-- <div class="container container-fluid"> --}}
+  {{#each comments as |comment|}}
+  <div class="row mb-4 comment-section">
+          <div class="col-md-8">
+              <h2>
+              <a href="/comment/{{comment.id}}">{{comment.title}}</a>
+              </h2>
+              <p>
+              {{!-- Make class "comment-info" small and in upper right corner of div --}}
+              <span class="comment-info" for="timestamp" aria-label="timestamp">By: {{comment.user.name}} | {{comment.date_created}}</span>
+              <span class="comment-rating">Rating: {{comment.rating}}</span>
+              </p>
+          </div>
+          <div class="col-md-7">
+              <p>
+              {{comment.content}}
+              </p>
+              {{!-- <button id="edit-btn" class="btn btn-primary">Edit comment</button> --}}
+          </div>
     </div>
-{{/each}}
+    {{/each}}
 
 {{!-- Row that contains 'post new comment' section --}}
 <div class="row mb-4 comment">
@@ -93,4 +117,7 @@
   </div>
 </div>
 
-{{! adding a comment}}
+{{!-- OSM Maps CDN --}}
+<script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.js"></script>
+
+{{{ render_map id }}}

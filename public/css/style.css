@@ -1,5 +1,7 @@
 /* ----- Start of Universal Styling ------- */
-body {
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
     background-color: #2f2f2f;
 }
 /* ----- End of Universal Styling --------- */
@@ -63,17 +65,24 @@ body {
 }
 
 .comment-link-container {
+    /* background-color: whitesmoke; */
+    /* opacity: 0.5; */
     text-align: center;
-    padding-top: 20px;
+    margin-top: 20px;
     padding-bottom: 10px;
 }
 .create-comment {
-    line-height: 1.5;
+    padding-top: 5px;
+    padding-bottom: 5px;
     font-size: x-large;
     font-weight: 500;
     text-decoration: none;
     padding-bottom: 10px;
     color: whitesmoke;
+}
+
+#create-comment-link {
+    padding: 5px;
 }
 
 .create-comment-text {
@@ -84,9 +93,6 @@ body {
     color: whitesmoke;
 }
 
-.create-comment-text:hover {
-    color: #2f2f2f;
-}
 
 .trail-data {
     text-align: center;
@@ -148,8 +154,7 @@ body {
 .results-comments-container{
     margin: 0 auto;
     padding-top: 10px;
-    justify-content: center;
-    align-content: center;
+    text-align: center;
     background-color: whitesmoke;
     color: #2f2f2f;
 }

@@ -1,38 +1,5 @@
-{{!-- ****** Do we want to put this carosel in the result section? Or put it on the home page? --}}
-
-{{!-- <div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-header">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="https://w.wallhaven.cc/full/5d/wallhaven-5dlm78.jpg" class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="..." class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-              <img src="..." class="d-block w-100" alt="...">
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div> <a href="#" class="btn btn-primary">DIRECTIONS</a>
-      </div>
-    </div>
-  </div>
-</div> --}}
 <div class="main row img-container" style="background-image: url({{trail_img}});">
-    {{!-- column that handles trail map --}}
+{{!-- column that handles trail map --}}
     <div class="col-md-4">
       <div class="row trail-map-row">
         <div class="col-md-12 trail-map" id="map" style="max-height: 350px; max-width: 750px;"></div>
@@ -55,59 +22,26 @@
           <p class="trail-info">Fee cost: ${{fees}}</p>
           <p class="trail-info">Pets allowed: {{pets_allowed}}</p>
     </div>
-  {{!-- </div> --}}
-  {{!-- <div class="d3"></div>
-  <div class="d4">
-    <div class="dropdown d-flex justify-content-center" id="trail-list-container">
-      <a class="btn btn-secondary dropdown-toggle text-center mx-auto" id="trail-list-btn" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-      Find Your Trail
-      </a>
-      <ul class="dropdown-menu text-center bg-transparent text-dark" id="trail-list-container" aria-labelledby="dropdownMenuLink">
-          <li class="bg-transparent list-group-item"> <a href= "/results/1" id="trail-link">Angels Landing Trail</a></li>
-          <li class="bg-transparent list-group-item"><a href= "/results/2" id="trail-link">Devils Bridge Trail</a></li>
-          <li class="bg-transparent list-group-item"><a href= "/results/3" id="trail-link">Emerald Lake Trail</a></li>
-          <li class="bg-transparent list-group-item"><a href= "/results/4" id="trail-link">Alum Cave Trail to Mount LeConte</a></li>
-          <li class="bg-transparent list-group-item"><a href= "/results/5" id="trail-link">Cathedral Rock Trail</a></li>
-          <li class="bg-transparent list-group-item"><a href= "/results/6" id="trail-link">Mount Lafayette and Franconia Ridge Trail Loop</a></li>
-          <li class="bg-transparent list-group-item"><a href= "/results/7" id="trail-link">Navajo Loop and Queen's Garden Trail</a></li>
-          <li class="bg-transparent list-group-item"><a href= "/results/8" id="trail-link">Lake Blanche Trail</a></li>
-          <li class="bg-transparent list-group-item"><a href="/results/9" id="trail-link">Lake 22 Trail</a></li>
-          <li class="bg-transparent list-group-item"><a href="/results/10" id="trail-link">Delicate Arch Trail</a></li>
-      </ul>
-    </div>
-  </div> --}}
 </div>
 
 
-{{!-- Row that contains all comment section information --}}
-  {{!-- <div class="container container-fluid"> --}}
-  {{#each comments as |comment|}}
-  <div class="row mb-4 comment-section">
-          <div class="col-md-8">
-              <h2>
-              <a href="/comment/{{comment.id}}">{{comment.title}}</a>
-              </h2>
-              <p>
-              {{!-- Make class "comment-info" small and in upper right corner of div --}}
-              <span class="comment-info" for="timestamp" aria-label="timestamp">By: {{user.name}} | {{comment.date_created}}</span>
-              <span class="comment-rating">Rating: {{comment.rating}}</span>
-              </p>
-          </div>
-          <div class="col-md-7">
-              <p>
-              {{comment.content}}
-              </p>
-              {{!-- <button id="edit-btn" class="btn btn-primary">Edit comment</button> --}}
-          </div>
+    {{!-- Row that contains all comment section information --}}
+    {{!-- <div class="container container-fluid"> --}}
+    {{#each comments as |comment|}}
+    <div class="row mb-4 comment-section">
+      <div class="col-md-8">
+        <h2> Comment ID: {{comment.id}} | {{comment.title}} </h2>
+        <p>
+          {{!-- Make class "comment-info" small and in upper right corner of div --}}
+          <span class="comment-info" for="timestamp" aria-label="timestamp">By: {{user.name}} | {{comment.date_created}}</span>
+          <span class="comment-rating">Rating: {{comment.rating}}</span>
+        </p>
+      </div>
+      <div class="col-md-7">
+        <p> {{comment.content}} </p>
+      </div>
     </div>
     {{/each}}
-
-{{!-- Row that contains 'post new comment' section --}}
-<div class="row mb-4 comment">
-  <div class="col-md-6">
-      <a id="create-comment" class="create-comment" href="/comment">Have questions or information about this trail? Click here to leave a comment!</a> 
-  </div>
-</div>
 
 {{!-- OSM Maps CDN --}}
 <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.js"></script>

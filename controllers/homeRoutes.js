@@ -49,9 +49,7 @@ router.get("/login", (req, res) => {
       return;
     }
 
-      res.render("login",  {
-        logged_in: true,
-      });
+      res.render("login");
 
   } catch (err) {
 

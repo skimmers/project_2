@@ -30,7 +30,7 @@
   {{!-- Row that contains all comment section information --}}
   {{!-- <div class="container container-fluid"> --}}
 
-  <div class="comment-container overflow-auto">
+  <div class="container container-fluid comment-container overflow-auto">
     <h1 class="comment-header-text">Read What Your Fellow Trail Blazers Wrote About This Trail Below!</h1>
   
   {{#each comments as |comment|}}
@@ -51,8 +51,8 @@
         </div>
     </div>
   {{else}}
-  <div class="comment-container overflow-auto">
-    <h1 class="comment-header-text">It doesn't look like this trail has any comments yet. Be the first to let the Trail Blazer community what you thought! <i class="fas fa-mountain"></i></h1>
+  <div class="comment-container row">
+    <h1 class="comment-header-text col-md-12">It doesn't look like this trail has any comments yet. Be the first to let the Trail Blazer community what you thought! <i class="fas fa-mountain"></i></h1>
   </div>
   {{/each}}
 </div>
@@ -63,4 +63,44 @@
 {{!-- OSM Maps CDN --}}
 <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.js"></script>
 
+<script>
 {{{ render_map id }}}
+
+  var mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>'
+
+  // variable default layer to be shown on map first
+  var defaultLayer = L.tileLayer(
+      'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
+      {
+        attribution: '&copy; ' + mapLink + ' Contributors',
+        maxZoom: 18,
+      })
+
+  defaultLayer.addTo(map);
+
+  // Other tile layers for the user to chose from on the map
+  var baselayers = {
+    "Tile Layer 1": L.tileLayer(
+      'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
+      {
+        attribution: '&copy; ' + mapLink + ' Contributors',
+        maxZoom: 18,
+      }),
+    "Tile Layer 2": L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/terrain/{z}/{x}/{y}@2x.{ext}', 
+    {
+      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors"',
+      subdomains: 'abcd',
+      minZoom: 0,
+      maxZoom: 18,
+      ext: 'png'
+    })
+  }
+
+  var overlays = {};
+
+  // set controls for switching between layers
+  L.control.layers(baselayers, overlays).addTo(map);
+  //add the baselayers to the map
+  baseLayers["Tile Layer 1", "Tile Layer 2"].addTo(map);
+
+</script>

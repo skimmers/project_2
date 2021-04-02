@@ -115,6 +115,9 @@ body {
 .park-name-state:hover {
     color: #2f2f2f;
 }
+.profileComments {
+    color: white;
+}
 
 .trail-info {
     line-height: 2.5;

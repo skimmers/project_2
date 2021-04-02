@@ -1,7 +1,8 @@
+<div class= "profileComments">
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{name}}!</h2>
-    <h4>Your comments: </h4>
+    <h1>Welcome, {{name}}!</h1>
+    <h2>Your comments: </h2>
   </div>
 </div>
 
@@ -10,8 +11,13 @@
 <div class="">
 
 </div>
-<h1>
-{{id}}{{title}}
-{{comment.search_id}}
-</h1>
+<div class="card" style="width: 18rem;">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Title: {{title}}</li>
+    <li class="list-group-item"> Rating: {{id}}</li>
+    <li class="list-group-item">Trail ID: {{comment.search_id}}</li>
+    <li class="list-group-item">Comment: {{comment.comment}}</li>
+  </ul>
+</div>
 {{/each}}
+</div>

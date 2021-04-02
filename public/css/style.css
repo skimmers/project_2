@@ -76,6 +76,18 @@ body {
     color: whitesmoke;
 }
 
+.create-comment-text {
+    font-size: x-large;
+    font-weight: 500;
+    text-decoration: none;
+    padding-bottom: 10px;
+    color: whitesmoke;
+}
+
+.create-comment-text:hover {
+    color: #2f2f2f;
+}
+
 .trail-data {
     text-align: center;
     color: whitesmoke;
@@ -101,7 +113,6 @@ body {
 }
 
 .park-name-state:hover {
-    background-color: whitesmoke;
     color: #2f2f2f;
 }
 .profileComments {
@@ -116,16 +127,33 @@ body {
 }
 
 .trail-info:hover {
-    background-color: whitesmoke;
     font-weight: 700;
-    font-size: x-large;
+    font-size: large;
     color: #2f2f2f;
 }
-
-
-
-
 /* -----------End of styling for the results.hbs and it's elements ----------*/
+
+
+/* -----------Start of styling for the comment section underneath the trail ----------*/
+.comment-container {
+    margin-top: 50px;
+    text-align: center;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+}
+
+.comment-header-text {
+    color: whitesmoke;
+}
+
+.results-comments-container{
+    margin: 0 auto;
+    padding-top: 10px;
+    justify-content: center;
+    align-content: center;
+    background-color: whitesmoke;
+    color: #2f2f2f;
+}
+/* -----------End of styling for the comment section underneath the trail ----------*/
 
 
 /* -----------Start of styling for the footer and it's elements ----------*/

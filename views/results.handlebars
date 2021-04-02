@@ -2,11 +2,13 @@
 {{!-- column that handles trail map --}}
     <div class="col-md-4">
       <div class="row trail-map-row">
-        <div class="col-md-12 trail-map" id="map" style="max-height: 350px; max-width: 750px;"></div>
+        <div class="col-md-12 trail-map" id="map" style="max-height: 350px; max-width: 350px;"></div>
       </div>
       <div class="row comment-link-container">
         <div class="col-md-12 comment-col">
-          <a id="create-comment" class="create-comment" href="/comment">Have questions or information about this trail? Click here to leave a comment!</a> 
+          <p class="create-comment-text">Have blazed this trail?</p>
+          <a id="create-comment" class="create-comment" href="/comment"> Click here</a> 
+          <p class="create-comment-text">to leave a tell everyone what you thought!</p>
         </div>
         
       </div>
@@ -25,23 +27,29 @@
 </div>
 
 
-    {{!-- Row that contains all comment section information --}}
-    {{!-- <div class="container container-fluid"> --}}
-    {{#each comments as |comment|}}
-    <div class="row mb-4 comment-section">
-      <div class="col-md-8">
-        <h2> Comment ID: {{comment.id}} | {{comment.title}} </h2>
-        <p>
-          {{!-- Make class "comment-info" small and in upper right corner of div --}}
-          <span class="comment-info" for="timestamp" aria-label="timestamp">By: {{user.name}} | {{comment.date_created}}</span>
-          <span class="comment-rating">Rating: {{comment.rating}}</span>
-        </p>
-      </div>
-      <div class="col-md-7">
-        <p> {{comment.content}} </p>
-      </div>
-    </div>
-    {{/each}}
+  {{!-- Row that contains all comment section information --}}
+  {{!-- <div class="container container-fluid"> --}}
+  <div class="comment-container">
+    <h1 class="comment-header-text">Read What Your Fellow Trail Blazers Wrote About This Trail Below!</h1>
+
+  {{#each comments as |comment|}}
+    <div class="row mt-4 results-comments-container">
+          <div class="col-md-12">
+            <h2> {{comment.title}} | {{comment.id}} </h2>
+            <p>
+              {{!-- Make class "comment-info" small and in upper right corner of div --}}
+              <span class="comment-info" for="timestamp" aria-label="timestamp">By: {{comment.user.name}} | {{comment.date_created}}</span>
+              <span class="comment-rating">Rating: {{comment.rating}}</span>
+            </p>
+          </div>
+        </div>
+        <div class="row mb-4 results-comments-container">
+          <div class="col-md-12">
+            <p> {{comment.comment}} </p>
+          </div>
+        </div>
+  {{/each}}
+  </div>
 
 {{!-- OSM Maps CDN --}}
 <script src="https://d19vzq90twjlae.cloudfront.net/leaflet-0.7/leaflet.js"></script>

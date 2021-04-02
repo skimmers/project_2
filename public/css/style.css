@@ -10,6 +10,18 @@ body {
 }
 /* -----------Start of styling for the navbar and it's elements ----------*/
 
+.navbar-toggler{
+    background-color: grey;
+}
+
+.navbar-toggler .line{
+    width: 100%;
+    float: left;
+    height: 5px;
+    background-color: #fff;
+    margin-bottom: 5px;
+    }
+        
 
 /* ---------- Start of styling for the drop-down menu on the homescreen ------------ */
 #trail-list-container {

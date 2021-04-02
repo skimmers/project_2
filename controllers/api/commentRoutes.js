@@ -4,7 +4,7 @@ const withAuth = require('../../utils/auth');
 
 // *** Put withAuth back in once we know the routes are good to go
 // POST route to handle creating a new comment
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const createComment = await Comment.create({
       ...req.body,
@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
 });
 
 // PUT route to handle editing an existing comment
-router.put('/:id', async (req,res) => {
+router.put('/:id', withAuth, async (req,res) => {
   try {
     const editComment = await Comment.update(req.body, {
       where: {
@@ -46,7 +46,7 @@ router.put('/:id', async (req,res) => {
 })
 
 // POST route to handle creating a new comment
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', withAuth, async (req, res) => {
   try {
     const deleteComment = await Comment.destroy({
       where: {
@@ -60,9 +60,8 @@ router.delete('/:id', async (req, res) => {
       return;
     }
 
-    res.json(deleteComment);
-
-  //   res.render('results', deleteComment);
+    // res.render('profile');
+    res.status(200).json(deleteComment);
 
   } catch (err) {
     res.status(500).json(err);

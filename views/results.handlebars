@@ -5,7 +5,7 @@
         <div class="col-md-12 trail-map" id="map" style="max-height: 350px; max-width: 350px;"></div>
       </div>
       <div class="row comment-link-container">
-        <div class="col-md-12 comment-col">
+        <div class="col-md-12 comment-col info-container">
           <p class="create-comment-text">Have you blazed this trail?</p>
           <a id="create-comment" class="create-comment" href="/comment"> Click here </a> 
           <p class="create-comment-text">to leave a comment and tell everyone what you thought!</p>
@@ -15,16 +15,34 @@
     </div>
     <div class="col-md-8 trail-data">
     {{!-- columns that handle all trail details --}}
+    <div class= "info-container">
           <h2 class="trail-name">{{trail_name}}</h2>
           <h3 class="park-name-state">{{park_name}} | {{state}}</h3>
-          <p class="trail-info trail-id">Trail ID: {{id}}</h3>
-          <p class="trail-info">Length of trail: {{trail_length}} miles</p>
-          <p class="trail-info">Difficulty ranking: {{difficulty}}</p>
-          <p class="trail-info">Elevation of trail: {{elevation_gain}} ft.</p>
-          <p class="trail-info">Fee cost: ${{fees}}</p>
-          <p class="trail-info">Pets allowed: {{pets_allowed}}</p>
-    </div>
-</div>
+          </div>
+          <div class="info-container">
+            <p class="trail-info trail-id">Trail ID: {{id}}</h3>
+          </div>
+          <div class="info-container">
+            <p class="trail-info">Length of trail: {{trail_length}} miles</p>
+          </div>
+          <div class="info-container">
+          
+            <p class="trail-info">Difficulty ranking: {{difficulty}}</p>
+          </div>
+          <div class="info-container">
+          
+            <p class="trail-info">Elevation of trail: {{elevation_gain}} ft.</p>
+          </div>
+          <div class="info-container">
+          
+            <p class="trail-info">Fee cost: ${{fees}}</p>
+          </div>
+          <div class="info-container">
+          
+            <p class="trail-info">Pets allowed: {{pets_allowed}}</p>
+          </div>
+          </div>
+          </div>
 
 
   {{!-- Row that contains all comment section information --}}

@@ -48,7 +48,7 @@
   {{!-- Row that contains all comment section information --}}
   {{!-- <div class="container container-fluid"> --}}
 
-  <div class="container container-fluid comment-container overflow-auto">
+  <div class="container container-fluid comment-container overflow-auto mt-4">
     <h1 class="comment-header-text">Read What Your Fellow Trail Blazers Wrote About This Trail Below!</h1>
   
   {{#each comments as |comment|}}
@@ -69,7 +69,7 @@
         </div>
     </div>
   {{else}}
-  <div class="comment-container row">
+  <div class="comment-container row mt-4">
     <h1 class="comment-header-text col-md-12">It doesn't look like this trail has any comments yet. Be the first to let the Trail Blazer community what you thought! <i class="fas fa-mountain"></i></h1>
   </div>
   {{/each}}

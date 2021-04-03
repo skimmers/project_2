@@ -1,11 +1,13 @@
 /* ----- Start of Universal Styling ------- */
 html, body {
-    max-width: 100%;
-    overflow-x: hidden;
+    max-width: 100vw;
+    /* overflow-x: hidden; */
     background-color: #2f2f2f;
 }
 /* ----- End of Universal Styling --------- */
-
+main {
+    margin: 15px;
+}
 /* -----------Start of styling for the navbar and it's elements ----------*/
 .navbar-container {
     border-bottom: 1px solid black;
@@ -62,16 +64,34 @@ html, body {
 /* -----------Start of styling for the results.hbs and it's elements ----------*/
 .img-container {
     height: 650px;
-    padding: 50px;
+    width: 100%;
+    max-width: 1200px;
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 0 auto;
     background-size: cover;
     background-repeat: no-repeat;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
     z-index: 1;
 }
 
+.trail-data {
+    margin: 0 auto;
+}
+
+.trail-map-row {
+    justify-content: center;
+    height: 300px;
+    width: 100%;
+    margin: 0 auto;
+    /* margin-top: 20px; */
+    padding-left: 20px;
+    padding-right: 20px;
+}
 .trail-map {
-    height: 400px;
-    width: 400px;
+    height: 100%;
+    width: 100%;
     box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
     z-index: 2;
 }
@@ -113,24 +133,28 @@ html, body {
 
 .trail-name {
     line-height: 1.5;
-    font-size: xx-large;
+    font-size: 40px;
     font-weight: 800;
+    text-shadow: 0 2px 0 black;
     padding-bottom: 10px;
 }
 
 .trail-name:hover {
+    text-shadow: 0 1px 0 whitesmoke;
     color: #2f2f2f;
 }
 
 .park-name-state {
     line-height: 1.5;
-    font-size: x-large;
+    font-size: 36px;
     font-weight: 700;
     padding-bottom: 10px;
+    text-shadow: 0 2px 0 black;
     border-bottom: 1px solid whitesmoke;
 }
 
 .park-name-state:hover {
+    text-shadow: 0 1px 0 whitesmoke;
     color: #2f2f2f;
 }
 .profileComments {
@@ -138,32 +162,36 @@ html, body {
 }
 
 .trail-info {
-    line-height: 2.5;
-    font-size: large;
+    line-height: 1.5;
+    font-size:30px;
     font-weight: 600;
     padding-bottom: 10px;
+    text-shadow: 0 3px 0 black;
 }
 
 .trail-info:hover {
-    font-weight: 700;
-    font-size: large;
+    font-weight: 600;
+    font-size:30px;
     color: #2f2f2f;
+    text-shadow: 0 1px 0 whitesmoke;
 }
 /* -----------End of styling for the results.hbs and it's elements ----------*/
 
 
 /* -----------Start of styling for the comment section underneath the trail ----------*/
 .comment-container {
-    margin-top: 50px;
+    margin-top: 40px;
+    padding-bottom: 40px;
     text-align: center;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .info-container {
-    margin-top: 20px;
     text-align: center;
-    background-color: grey;
-    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.8);
 }
 
 .comment-header-text {
@@ -173,6 +201,10 @@ html, body {
 .results-comments-container{
     margin: 0 auto;
     padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100%;
+    max-width: 1200px;
     text-align: center;
     background-color: whitesmoke;
     color: #2f2f2f;

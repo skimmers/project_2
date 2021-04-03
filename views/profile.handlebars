@@ -1,34 +1,36 @@
-<div class= "profileComments mb-4">
-  <div class="row">
-    <div class="col-auto">
-      <h1>Welcome, {{name}}!</h1>
-      <h2>Your previous comments: </h2>
-    </div>
-  </div>
-</div>
-
-<div class="row mb-4">
-
-  {{#each comments as |comment|}}
-  <div class="col-md-6">
-    <div class="card" style="width: 22rem; display: inline-block;">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Trail ID: {{comment.search_id}}</li>
-        <li class="list-group-item">Title: {{title}}</li>
-        <li class="list-group-item">Comment: {{comment.comment}}</li>
-        <li class="list-group-item"> Rating: {{rating}}</li>
-      </ul>
-    </div>
-    <form class="" id="delete-form" value="{{comment.id}}">
-      <div class="form-check mb-3">
-        {{!-- <button class="btn1 btn-primary" id="edit-comment" type="submit">Edit Comment</button> --}}
-        <label class="form-check-label text-light px-2" for="comment-delete">Remove this comment?</label>
-        <input type="checkbox" class="form-check-input visually-hidden" id="input{{comment.id}}" value="{{comment.id}}">
-        <button class="btn1 btn btn-primary px-2" id="delete-comment" type="submit">Delete</button>
+<div class="container container-fluid">
+  <div class= "profileComments mb-4">
+    <div class="row">
+      <div class="col-auto">
+        <h1>Welcome, {{name}}!</h1>
+        <h2>Your previous comments: </h2>
       </div>
-    </form>
+    </div>
   </div>
-  {{/each}}
+
+  <div class="row mb-4">
+
+    {{#each comments as |comment|}}
+    <div class="col-md-6">
+      <div class="card" style="width: 22rem; display: inline-block;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Trail ID: {{comment.search_id}}</li>
+          <li class="list-group-item">Title: {{title}}</li>
+          <li class="list-group-item">Comment: {{comment.comment}}</li>
+          <li class="list-group-item"> Rating: {{rating}}</li>
+        </ul>
+      </div>
+      <form class="" id="delete-form" value="{{comment.id}}">
+        <div class="form-check mb-3">
+          {{!-- <button class="btn1 btn-primary" id="edit-comment" type="submit">Edit Comment</button> --}}
+          <label class="form-check-label text-light px-2" for="comment-delete">Remove this comment?</label>
+          <input type="checkbox" class="form-check-input visually-hidden" id="input{{comment.id}}" value="{{comment.id}}">
+          <button class="btn1 btn btn-primary px-2" id="delete-comment" type="submit">Delete</button>
+        </div>
+      </form>
+    </div>
+    {{/each}}
+  </div>
 </div>
 
 <script src="/js/profile.js"></script>

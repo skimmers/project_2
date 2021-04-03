@@ -112,7 +112,9 @@ router.get("/results/:id", withAuth, async (req, res) => {
 router.get('/comment', async (req, res) => {
   try {
 
-    res.render('comment');
+    res.render('comment', {
+      logged_in: true,
+    });
 
   } catch (err) {
     res.status(500).json(err);
